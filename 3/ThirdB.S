@@ -1,0 +1,17 @@
+    AREA GEOP,CODE,READONLY
+A   RN 1
+D   RN 2
+N   RN 3
+ENTRY
+     MOV A,#1
+	 MOV D,#2
+	 MOV N,#10
+	 MOV R5,#0x40000000
+LOOP
+     STR A,[R5],#4
+     MUL R6,A,D
+	 MOV A,R6
+	 SUBS N,N,#1
+	 BNE LOOP
+STOP B STOP
+     END
